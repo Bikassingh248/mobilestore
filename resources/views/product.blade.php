@@ -53,48 +53,56 @@
     </div> --}}
 </div>
 <div class="section group">
-    <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m2.jpg">
-         <a href="{{route('fr.description')}}">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$260</h3>
-         <ul>
-             <li><a  class="cart" href="{{route('fr.description')}}"> </a></li>
-             <li><a  class="i" href="{{route('fr.description')}}"> </a></li>
-             <li><a  class="Compar" href="{{route('fr.description')}}"> </a></li>
-             <li><a  class="Wishlist" href="{{route('fr.description')}}"> </a></li>
-         </ul>
+    @if(isset($products))
+        @foreach($products as $product)
+            <div class="grid_1_of_4 images_1_of_4 products-info">
+                <img src="{{ $product->image ?? '' }}">
+                <a href="{{route('fr.description')}}">{{ $product->p_name ?? '' }}</a>
+                <h3>{{ $product->price }}</h3>
+                <ul>
+                    <li><a  class="cart" href="{{route('fr.description')}}"> </a></li>
+                    <li><a  class="i" href="{{route('fr.description')}}"> </a></li>
+                    <li><a  class="Compar" href="{{route('fr.description')}}"> </a></li>
+                    <li><a  class="Wishlist" href="{{route('fr.description')}}"> </a></li>
+                </ul>
+            </div>
+        @endforeach
+    @endif
+
+    <div>
+        {{ $products ? $products->links()  :''}}
     </div>
-    <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m6.jpg">
-          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$100</h3>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-    </div>
-    <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m7.jpg">
-          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$180</h3>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-    </div>
-    <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m1.jpg">
-          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$140</h3>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-    </div>
+{{--    <div class="grid_1_of_4 images_1_of_4 products-info">--}}
+{{--         <img src="images/m6.jpg">--}}
+{{--          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>--}}
+{{--         <h3>$100</h3>--}}
+{{--         <ul>--}}
+{{--             <li><a  class="cart" href="single.html"> </a></li>--}}
+{{--             <li><a  class="i" href="single.html"> </a></li>--}}
+{{--             <li><a  class="Compar" href="single.html"> </a></li>--}}
+{{--             <li><a  class="Wishlist" href="single.html"> </a></li>--}}
+{{--         </ul>--}}
+{{--    </div>--}}
+{{--    <div class="grid_1_of_4 images_1_of_4 products-info">--}}
+{{--         <img src="images/m7.jpg">--}}
+{{--          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>--}}
+{{--         <h3>$180</h3>--}}
+{{--         <ul>--}}
+{{--             <li><a  class="cart" href="single.html"> </a></li>--}}
+{{--             <li><a  class="i" href="single.html"> </a></li>--}}
+{{--             <li><a  class="Compar" href="single.html"> </a></li>--}}
+{{--             <li><a  class="Wishlist" href="single.html"> </a></li>--}}
+{{--         </ul>--}}
+{{--    </div>--}}
+{{--    <div class="grid_1_of_4 images_1_of_4 products-info">--}}
+{{--         <img src="images/m1.jpg">--}}
+{{--          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>--}}
+{{--         <h3>$140</h3>--}}
+{{--         <ul>--}}
+{{--             <li><a  class="cart" href="single.html"> </a></li>--}}
+{{--             <li><a  class="i" href="single.html"> </a></li>--}}
+{{--             <li><a  class="Compar" href="single.html"> </a></li>--}}
+{{--             <li><a  class="Wishlist" href="single.html"> </a></li>--}}
+{{--         </ul>--}}
+{{--    </div>--}}
 </div>
