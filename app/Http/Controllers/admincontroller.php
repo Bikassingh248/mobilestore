@@ -29,8 +29,8 @@ $admin=admin::where('email',$req->email)->first();
 if($admin){
 if(Hash::check($req->password,$admin->password))
 {
-//     // Auth::login('admin',$admin);
-    $req->session()->put('admin',$admin);
+    Auth::guard('admin',$admin)->login(user);
+    // $req->session()->put('admin',$admin);
     // return $req->session()->get('admin');
     return redirect('dashboard');
 }

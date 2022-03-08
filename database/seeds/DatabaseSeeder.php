@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(adminseeder::class);
         $this->call(brandseeder::class);
         $this->call(contactseeder::class);
+        $this->call(ProductSeeder::class);
     }
 }
