@@ -42,24 +42,26 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
+
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary"><center><h2> Brand Details</h2></center></h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><center><h2> Contact Details</h2></center></h6>
                         </div>
                         <div class="search-bar">
-                            <form action="" method="">
-                                <input type="search" name="search"><input type="submit" value="Search" />
+                            <form >
+                                <input type="search" name="search"><input type="submit" class="btn-btn primary"  value="Search" />
                             </form>
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Brand ID</th>
-                                            <th>Brand Name</th>
-                                            <th>Created Date</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Customer ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile Number</th>
+                                            <th>Subject</th>
                                         </tr>
                                     </thead>
                              @isset($data)
@@ -67,17 +69,18 @@
                              <tbody>
                                 <tr>
                                     <td >{{$br->id ?? ''}}</td>
-                                    <td >{{$br->b_name ?? ''}}</td>
-                                    <td >{{$br->date ?? ''}}</td>
-                                    <td >{{$br->status ?? ''}}</td>
-                                    <td >
+                                    <td >{{$br->name ?? ''}}</td>
+                                    <td >{{$br->email ?? ''}}</td>
+                                    <td >{{$br->mobileno ?? ''}}</td>
+                                    <td >{{$br->subject ?? ''}}</td>
+                                    {{-- <td >
                                         <a href="{{route('brand.edit',$br->id)}}" class="btn btn-primary btn-user btn-block">
                                             Edit
                                         </a>
                                         <a href="{{route('brand.delete',$br->id)}}" class="btn btn-primary btn-user btn-block">
                                             Delete
                                         </a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             </tbody>
                              @endforeach

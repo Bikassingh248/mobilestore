@@ -45,6 +45,11 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"><center><h2> Products Details</h2></center></h6>
                         </div>
+                        <div class="search-bar">
+                            <form>
+                                <input type="text"><input type="submit" value="Search" />
+                            </form>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

@@ -14,14 +14,25 @@
 // Route::get('hello', function () {
 //     return view('hello');
 // });
-
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\admincontroller;
+use App\site;
 
 Auth::routes();
 Route::get('/','checkcontroller@check');
 Route::get('home', 'HomeController@index')->name('home');
 // for frontend
-Route::view('frontend','frontend.layouts.master');
+Route::get('frontend',function(){
+    $is_fetched=false;
+    if(!$is_fetched){
+        $data=site::find(1);
+        session::put('sitesetting',$data);
+        $is_fetched=true;
+    }
+
+    // dd(session::get('sitesetting'));
+    return view('frontend.layouts.master');
+});
 
 
 // for dashboard
@@ -58,13 +69,13 @@ Route::view('description','frontend.topic.description')->name('fr.description');
 // for site setting
 Route::get('session','sitecontroller@session')->name('site.session');
 Route::get('sitesetting','sitecontroller@show')->name('site.create');
-Route::post('sitesave','sitecontroller@save')->name('site.save');
+Route::post('sitesave','sitecontroller@savedata')->name('site.save');
 
 // for contact page
 Route::post('contactsave','contactcontroller@save')->name('contact.save');
-
+Route::get('contactshow','contactcontroller@show')->name('contact.show');
 // for change password
-Route::get('showpassword','passwordcontroller@show')->name('password.show');
-
+Route::get('changepassword','passwordcontroller@show')->name('password.show');
+Route::post('checkpassword','passwordcontroller@check')->name('password.check');
 
 

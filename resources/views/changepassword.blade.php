@@ -25,7 +25,7 @@
                             <div class="text-center">
                                 <h1  style="color:green">Change Password !!!</h1>
                             </div>
-    <form action="" method="" >
+    <form action="{{route('password.check')}}" method="POST" >
         @csrf
         <div class="form-group">
           <label for="Brand Name">User Name:</label>
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
           <label for="Created Date">E-mail:</label>
-          <input type="email" class="form-control" name="Email" placeholder="">
+          <input type="email" class="form-control" name="email" placeholder="">
         </div>
         <div class="form-group">
             <label for="status">Current Password:</label>

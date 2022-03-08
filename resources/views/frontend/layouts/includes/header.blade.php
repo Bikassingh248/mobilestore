@@ -23,7 +23,7 @@
     <div class="wrap">
 		<!----start-logo---->
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" title="logo" /></a>
+				<a href="index.html"><img src="{{\Illuminate\Support\Facades\Session::get('sitesetting') ? \Illuminate\Support\Facades\Session::get('sitesetting')->logo:''}}"  title="logo" /></a>
 			</div>
 		<!----end-logo---->
 		<!----start-top-nav---->

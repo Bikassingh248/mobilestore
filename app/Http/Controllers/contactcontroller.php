@@ -18,4 +18,14 @@ $data=[
 contact::insert($data);
 return "contact saved successfully";
     }
+    public function show(Request $req){
+        $search=$req->get('search') ?? '';
+        if($search !=''){
+            $data=contact::where('name','Like',"%$search%")->orwhere('email','Like',"%$search%")->get();
+        }else{
+            $data=contact::paginate(20);
+        }
+
+        return view('backend.contact',compact('data',$data));
+    }
 }

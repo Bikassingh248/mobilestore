@@ -20,51 +20,72 @@
             <div class="text-center">
                 <h1 style="color:blue">Welcome to Site-Setting !!!</h1>
             </div>
-     <form action="{{route('site.save')}}" method="POST" >
+     <form action="{{route('site.save')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="productid">Site Name:</label>
-          <input type="text" class="form-control" name="name" >
+          <input type="text" class="form-control" name="name" value="{{$data->name ?? null}}">
         </div>
+        <p style="color: red">@error('name'){{$message}}@enderror</p>
+
+
         <div class="form-group">
           <label for="productname">Slogan:</label>
-          <input type="text" class="form-control" name="slogan" >
+          <input type="text" class="form-control" name="slogan" value="{{$data->slogan ?? null}}">
         </div>
+        <p style="color: red">@error('slogan'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="producttype">Site Logo:</label>
-            <input type="file" class="form-control" name="logo" >
+            <input type="file" class="form-control" name="logo" value="{{$data->logo ?? null}}">
         </div>
+        <p style="color: red">@error('logo'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="producttype">Mobile No:</label>
-            <input type="text" class="form-control" name="mobileno" >
+            <input type="text" class="form-control" name="mobileno" value="{{$data->mobile_no ?? null}}">
         </div>
+        <p style="color: red">@error('mobileno'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="image">Telephone No:</label>
-            <input type="text" class="form-control" name="telephoneno" >
+            <input type="text" class="form-control" name="telephoneno" value="{{$data->telephone_no ?? null}}">
         </div>
+        <p style="color: red">@error('telephoneno'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="description">Address:</label>
-            <input type="text" class="form-control" name="address" >
+            <input type="text" class="form-control" name="address" value="{{$data->address ?? null}}" >
         </div>
+        <p style="color: red">@error('address'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="price">Facebook:</label>
-            <input type="text" class="form-control" name="facebook" >
+            <input type="text" class="form-control" name="facebook" value="{{$data->facebook ?? null}}">
         </div>
+        <p style="color: red">@error('facebook'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="price">Instragram:</label>
-            <input type="text" class="form-control" name="instragram" >
+            <input type="text" class="form-control" name="instragram" value="{{$data->instragram ?? null}}">
         </div>
+        <p style="color: red">@error('instragram'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="price">Linkedin:</label>
-            <input type="text" class="form-control" name="linkedin" >
+            <input type="text" class="form-control" name="linkedin" value="{{$data->linkedin ?? null}}">
         </div>
+        <p style="color: red">@error('linkedin'){{$message}}@enderror</p>
+
         <div class="form-group">
             <label for="price">copyright:</label>
-            <input type="text" class="form-control" name="copyright" >
-        </div><br>
+            <input type="text" class="form-control" name="copyright" value="{{$data->copyright ?? null}}">
+        </div>
+        <p style="color: red">@error('copyright'){{$message}}@enderror</p>
+        <br>
 
         <button type="submit" class="btn btn-primary btn-user btn-block">
-            Submit
+            Update
         </button>
 
       </form>

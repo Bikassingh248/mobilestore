@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\brand;
 use App\product;
+use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Http\Request;
 
 class brandcontroller extends Controller
@@ -13,6 +14,11 @@ class brandcontroller extends Controller
         return view('backend.brand.addbrand');
     }
     public function submit(Request $req){
+        $req->validate([
+            'name'=>'required',
+            'date'=>'required',
+            'status'=>'required',
+        ]);
 $data=[
     'b_name'=>$req->name,
     'status'=>$req->status,
@@ -22,8 +28,14 @@ brand::insert($data);
 return redirect()->back();
     }
 
-    public function show(){
-        $data=brand::all();
+    public function show(Request $req){
+        $search=$req->get('search') ?? '';
+    if($search !=''){
+        $data=brand::where('b_name','Like',"%$search%")->get();
+    }else{
+        $data=brand::paginate(10);
+    }
+
         return view('backend.brand.managebrand',compact('data'));
     }
     public function delete($id){

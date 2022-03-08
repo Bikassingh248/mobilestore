@@ -25,20 +25,26 @@
                             <div class="text-center">
                                 <h1  style="color:green">Add Brand !!!</h1>
                             </div>
+
     <form action="{{route('brand.add')}}" method="POST" >
         @csrf
         <div class="form-group">
           <label for="Brand Name">Brand Name:</label>
           <input type="text" class="form-control" name="name" placeholder="Enter Brand Name">
         </div>
+    <p style="color: red">@error('name'){{$message}}@enderror
+
         <div class="form-group">
           <label for="Created Date">Created Date:</label>
           <input type="date" class="form-control" name="date" placeholder="Enter the Date">
         </div>
+        <p style="color: red">@error('name'){{$message}}@enderror
         <div class="form-group">
             <label for="status">Status:</label>
             <input type="text" class="form-control" name="status" placeholder="Enter the status">
-        </div><br>
+        </div>
+        <p style="color: red">@error('name'){{$message}}@enderror
+        <br>
 
          <button type="submit" class="btn btn-primary">Submit</button>
     </form>
