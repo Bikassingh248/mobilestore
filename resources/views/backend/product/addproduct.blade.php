@@ -1,3 +1,5 @@
+@extends('backend.layouts.master')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,29 +32,34 @@
         @csrf
         <div class="form-group">
           <label for="productid">Product Id:</label>
-          <input type="text" class="form-control" name="productid" placeholder="product id">
+          <input type="text" class="form-control" name="productid" value="{{old('productid')}}" placeholder="product id">
         </div>
+        <p style="color: red">@error('productid'){{$message}}@enderror</p>
         <div class="form-group">
           <label for="productname">Product Name:</label>
-          <input type="text" class="form-control" name="productname" placeholder="productname">
+          <input type="text" class="form-control" name="productname" value="{{old('productname')}}" placeholder="productname">
         </div>
+        <p style="color: red">@error('productname'){{$message}}@enderror</p>
         <div class="form-group">
             <label for="producttype">Product Brand:</label>
-            <input type="text" class="form-control" name="productbrand" placeholder="productbrand">
+            <input type="text" class="form-control" name="productbrand" value="{{old('productbrand')}}" placeholder="productbrand">
           </div>
+          <p style="color: red">@error('productbrand'){{$message}}@enderror</p>
           <div class="form-group">
             <label for="image">Product Image:</label>
-            <input type="file" class="form-control" name="image" placeholder="productimage">
+            <input type="file" class="form-control" name="image" value="{{old('image')}}" placeholder="productimage">
           </div>
+          <p style="color: red">@error('image'){{$message}}@enderror</p>
           <div class="form-group">
             <label for="description">Product Description:</label>
-            <textarea class="form-control" name="description" placeholder="description"></textarea>
+            <textarea class="form-control" name="description" value="{{old('description')}}" placeholder="description"></textarea>
           </div>
+          <p style="color: red">@error('description'){{$message}}@enderror</p>
           <div class="form-group">
             <label for="price">Product price:</label>
-            <input type="number" class="form-control" name="price" placeholder="productprice">
+            <input type="number" class="form-control" name="price" value="{{old('price')}}" placeholder="productprice">
           </div>
-
+          <p style="color: red">@error('price'){{$message}}@enderror</p>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
@@ -66,4 +73,5 @@
 
 </body>
 </html>
+@endsection
 

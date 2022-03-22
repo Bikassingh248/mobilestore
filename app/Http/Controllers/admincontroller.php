@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\admin;
 use Exception;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -29,9 +30,8 @@ $admin=admin::where('email',$req->email)->first();
 if($admin){
 if(Hash::check($req->password,$admin->password))
 {
-    Auth::guard('admin',$admin)->login(user);
-    // $req->session()->put('admin',$admin);
-    // return $req->session()->get('admin');
+    // Auth::login($admin);
+    session()->put('admin',$admin);
     return redirect('dashboard');
 }
 else{
@@ -44,6 +44,15 @@ else{
             dd($exception);
         }
 
+    }
+    public function logout(){
+        if(Auth::check()){
+
+            Auth::logout();
+            // Session::forget('admin');
+            return redirect()->route('admin.login');
+        }
+        dd("admin is already logout");
     }
 
 }

@@ -38,20 +38,24 @@
                             @csrf
 					    	<div>
 						    	<span><label>NAME</label></span>
-						    	<span><input type="text" value="" name="name"></span>
-						    </div>
+						    	<span><input type="text" value="{{old('name')}}" name="name"></span>
+						    </div><p style="color: red">@error('name'){{$message}}@enderror</p>
+
 						    <div>
 						    	<span><label>E-MAIL</label></span>
-						    	<span><input type="text" value="" name="email"></span>
+						    	<span><input type="text" value="{{old('email')}}" name="email"></span>
 						    </div>
+                            <p style="color: red">@error('email'){{$message}}@enderror</p>
 						    <div>
 						     	<span><label>MOBILE.NO</label></span>
-						    	<span><input type="text" value="" name="mobileno"></span>
+						    	<span><input type="text" value="{{old('mobileno')}}" name="mobileno"></span>
 						    </div>
+                            <p style="color: red">@error('mobileno'){{$message}}@enderror</p>
 						    <div>
 						    	<span><label>SUBJECT</label></span>
-						    	<span><textarea name="subject"> </textarea></span>
+						    	<span><textarea name="subject" > {{old('subject')}}</textarea></span>
 						    </div>
+                            <p style="color: red">@error('subject'){{$message}}@enderror</p>
 						   <div>
 						   		<span><input type="submit" value="Submit"></span>
 						  </div>

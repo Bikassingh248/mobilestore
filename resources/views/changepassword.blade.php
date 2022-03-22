@@ -1,3 +1,5 @@
+@extends('backend.layouts.master')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,22 +33,28 @@
           <label for="Brand Name">User Name:</label>
           <input type="text" class="form-control" name="name" placeholder="">
         </div>
+        <p style="color: red">@error('name'){{$message}}@enderror</p>
         <div class="form-group">
           <label for="Created Date">E-mail:</label>
           <input type="email" class="form-control" name="email" placeholder="">
         </div>
+        <p style="color: red">@error('email'){{$message}}@enderror</p>
         <div class="form-group">
             <label for="status">Current Password:</label>
             <input type="password" class="form-control" name="currentpassword" placeholder="">
         </div>
+        <p style="color: red">@error('currentpassword'){{$message}}@enderror</p>
         <div class="form-group">
             <label for="status">New Password:</label>
             <input type="password" class="form-control" name="newpassword" placeholder="">
         </div>
+        <p style="color: red">@error('newpassword'){{$message}}@enderror</p>
         <div class="form-group">
             <label for="status">Re-enter Password:</label>
             <input type="password" class="form-control" name="reenterpassword" placeholder="">
-        </div><br>
+        </div>
+        <p style="color: red">@error('reenterpassword'){{$message}}@enderror</p>
+        <br>
 
          <button type="submit" class="btn btn-primary">Change</button>
     </form>
@@ -59,4 +67,4 @@
 
 </body>
 </html>
-
+@endsection

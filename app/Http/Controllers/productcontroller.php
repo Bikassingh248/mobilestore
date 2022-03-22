@@ -12,7 +12,14 @@ class productcontroller extends Controller
         return view('backend.product.addproduct');
     }
     public function addproduct(Request $req){
-
+        $req->validate([
+            'productid'=>'required',
+            'productname'=>'required',
+            'productbrand'=>'required',
+            'image'=>'required',
+            'description'=>'required|min:10',
+            'price'=>'required',
+        ]);
         $image_url='';
         if($req->hasFile('image')){
             $file=$req->file('image');
@@ -34,9 +41,13 @@ class productcontroller extends Controller
         return redirect('addproduct');
             }
 
-            public function showproduct(){
-
-                $data=product::all();
+            public function showproduct(Request $req){
+                $search=$req->get('search') ?? '';
+                if($search !=''){
+                    $data=product::where('p_name','Like',"%$search%")->get();
+                }else{
+                    $data=product::paginate(5);
+                }
 
                 return view('backend.product.manageproduct',compact('data'));
             }
@@ -59,13 +70,14 @@ class productcontroller extends Controller
             }
 
             public function deleteproduct($id){
-                dd(" This product is deleted sucessfully");
+                // dd(" This product is deleted sucessfully");
                 product::destroy($id);
                 return redirect()->back();
             }
-            public function adshowproduct(){
-                $data=product::all();
-                return view('product',['products'=>$data]);
+            public function index()
+            {
+                $products = product::paginate(8);
+                return view('frontend.layouts.main', compact('products'));
             }
 
 }

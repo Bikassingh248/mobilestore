@@ -8,12 +8,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 	<head>
 		<title>Mobilestore Website Template | Home :: W3layouts</title>
-		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+        
+		<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"  media="all" />
 		<meta name="keywords" content="Mobilestore iphone web template, Android web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-		<link href='//fonts.googleapis.com/css?family=Londrina+Solid|Coda+Caption:800|Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/responsiveslides.css">
-		<script src="js/jquery.min.js"></script>
-		<script src="js/responsiveslides.min.js"></script>
+		<link href="{{asset('//fonts.googleapis.com/css?family=Londrina+Solid|Coda+Caption:800|Open+Sans')}}" rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{{asset('css/responsiveslides.css')}}">
+		<script src="{{asset('js/jquery.min.js')}}"></script>
+		<script src="{{asset('js/responsiveslides.min.js')}}"></script>
 		  <script>
 		    // You can also use "$(window).load(function() {"
 			    $(function () {

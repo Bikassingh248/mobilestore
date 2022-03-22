@@ -1,3 +1,5 @@
+@extends('backend.layouts.master')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,20 +32,22 @@
         @csrf
         <div class="form-group">
           <label for="Brand Name">Brand Name:</label>
-          <input type="text" class="form-control" name="name" placeholder="Enter Brand Name">
+          <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter Brand Name">
+
         </div>
-    <p style="color: red">@error('name'){{$message}}@enderror
+        <p style="color: red">@error('name'){{$message}}@enderror</p>
+
 
         <div class="form-group">
           <label for="Created Date">Created Date:</label>
-          <input type="date" class="form-control" name="date" placeholder="Enter the Date">
+          <input type="date" class="form-control" name="date" value="{{old('date')}}" placeholder="Enter the Date">
         </div>
-        <p style="color: red">@error('name'){{$message}}@enderror
+        <p style="color: red">@error('date'){{$message}}@enderror</p>
         <div class="form-group">
             <label for="status">Status:</label>
-            <input type="text" class="form-control" name="status" placeholder="Enter the status">
+            <input type="text" class="form-control" name="status" value="{{old('status')}}" placeholder="Enter the status">
         </div>
-        <p style="color: red">@error('name'){{$message}}@enderror
+        <p style="color: red">@error('status'){{$message}}@enderror</p>
         <br>
 
          <button type="submit" class="btn btn-primary">Submit</button>
@@ -57,4 +61,4 @@
 
 </body>
 </html>
-
+@endsection

@@ -2,6 +2,7 @@
 
 use App\brand;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class brandseeder extends Seeder
 {
@@ -13,6 +14,7 @@ class brandseeder extends Seeder
     public function run()
     {
         //
-        factory(brand::class,200)->create();
+        // DB::table('brands')->truncate();
+        factory(brand::class,5)->create();
     }
 }

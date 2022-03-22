@@ -14,25 +14,33 @@ class passwordcontroller extends Controller
         return view('changepassword');
     }
     public function check(Request $req){
-        $admin=admin::where('email',$req->email)->first();
-        if($admin){
-        if(Hash::check($req->currentpassword,$admin->password))
-        {
-            // dd("hello everyone");
-            $data=[
-                'name'=>$req->get('name'),
-                'email'=>$req->get('email'),
-                'password'=>bcrypt($req->get('currentpassword')),
-            ];
-            DB::table('admin')->truncate();
-            admin::insert($data);
+        $req->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'currentpassword'=>'required',
+            'newpassword'=>'required',
+            'reenterpassword'=>'required',
+        ]);
+        dd("hello everyone");
+        // $admin=admin::where('email',$req->email)->first();
+        // if($admin){
+        // if(Hash::check($req->currentpassword,$admin->password))
+        // {
 
-            return "password changed successfully";
-        }
-        else{
-            echo "sorry you have entered wrong Email and Password";
-        }
-        }
+        //     $data=[
+        //         'name'=>$req->get('name'),
+        //         'email'=>$req->get('email'),
+        //         'password'=>bcrypt($req->get('currentpassword')),
+        //     ];
+        //     DB::table('admin')->truncate();
+        //     admin::insert($data);
+
+        //     return "password changed successfully";
+        // }
+        // else{
+        //     echo "sorry you have entered wrong Email and Password";
+        // }
+        // }
 
     }
 }

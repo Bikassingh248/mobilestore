@@ -1,4 +1,5 @@
-
+@extends('backend.layouts.master')
+@section('content')
 <form action="{{route('brand.update',$data->id)}}" method="POST" >
     @csrf
     <div class="form-group">
@@ -16,3 +17,6 @@
 
      <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@endsection
+
+

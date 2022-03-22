@@ -33,13 +33,13 @@ return redirect()->back();
     if($search !=''){
         $data=brand::where('b_name','Like',"%$search%")->get();
     }else{
-        $data=brand::paginate(10);
+        $data=brand::paginate(15);
     }
 
         return view('backend.brand.managebrand',compact('data'));
     }
     public function delete($id){
-        dd("This brand is deleted sucessfully");
+        // dd("This brand is deleted sucessfully");
         brand::destroy($id);
         return redirect()->back();
     }
@@ -55,6 +55,10 @@ return redirect()->back();
         ];
         brand::where('id',$id)->update($data);
         return redirect('brandshow');
+    }
+    public function frshowbrand(){
+        $data=brand::all();
+        return view('frontend.layouts.includes.sidebar',['brands'=>$data]);
     }
 }
 

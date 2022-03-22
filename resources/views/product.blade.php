@@ -1,108 +1,36 @@
-<div class="content-grids">
-    <h4 style="color: blue">List of the latest Phone</h4>
-    <div class="section group">
-    <div class="grid_1_of_4 images_1_of_4 products-info">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content-grids">
+        <h4 style="color: blue">List of the latest Phone</h4>
+        <div class="section group">
+        @if(isset($products))
+            @foreach($products as $product)
+                <div class="grid_1_of_4 images_1_of_4 products-info">
+                    <img src="{{ $product->image ?? '' }}">
+                    <a href="">{{ $product->p_name ?? '' }}</a>
+                    <h3>{{ $product->price }}</h3>
+                    <ul>
+                        <li><a  class="cart" href="{{route('fr.description',$product->id)}}"> </a></li>
+                        <li><a  class="i" href="{{route('fr.description',$product->id)}}"> </a></li>
+                        <li><a  class="Compar" href="{{route('fr.description',$product->id)}}"> </a></li>
+                        <li><a  class="Wishlist" href="{{route('fr.description',$product->id)}}"> </a></li>
+                    </ul>
 
-       {{-- @foreach($products as $pd ) --}}
-         {{-- <img src="{{$pd->image ?? ''}}">
-         <a href="single.html">{{$pd->description ?? ''}}</a>
-         <h3>{{$pd->price ?? ''}}</h3> --}}
- <H1>hello everyone</H1>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-         {{-- @endforeach --}}
+                </div>
+            @endforeach
+        @endif
+        <div class="section group">
+            {{ $products ? $products->links()  :''}}
+        </div>
+    </div>
+    </div>
+</body>
+</html>
 
-    </div>
-
-    {{-- <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m2.jpg">
-          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$150</h3>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-    </div>
-    <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m7.jpg">
-          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$130</h3>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-    </div>
-    <div class="grid_1_of_4 images_1_of_4 products-info">
-         <img src="images/m4.jpg">
-          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>
-         <h3>$460</h3>
-         <ul>
-             <li><a  class="cart" href="single.html"> </a></li>
-             <li><a  class="i" href="single.html"> </a></li>
-             <li><a  class="Compar" href="single.html"> </a></li>
-             <li><a  class="Wishlist" href="single.html"> </a></li>
-         </ul>
-    </div> --}}
-</div>
-<div class="section group">
-    @if(isset($products))
-        @foreach($products as $product)
-            <div class="grid_1_of_4 images_1_of_4 products-info">
-                <img src="{{ $product->image ?? '' }}">
-                <a href="{{route('fr.description')}}">{{ $product->p_name ?? '' }}</a>
-                <h3>{{ $product->price }}</h3>
-                <ul>
-                    <li><a  class="cart" href="{{route('fr.description')}}"> </a></li>
-                    <li><a  class="i" href="{{route('fr.description')}}"> </a></li>
-                    <li><a  class="Compar" href="{{route('fr.description')}}"> </a></li>
-                    <li><a  class="Wishlist" href="{{route('fr.description')}}"> </a></li>
-                </ul>
-            </div>
-        @endforeach
-    @endif
-
-    <div>
-        {{ $products ? $products->links()  :''}}
-    </div>
-{{--    <div class="grid_1_of_4 images_1_of_4 products-info">--}}
-{{--         <img src="images/m6.jpg">--}}
-{{--          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>--}}
-{{--         <h3>$100</h3>--}}
-{{--         <ul>--}}
-{{--             <li><a  class="cart" href="single.html"> </a></li>--}}
-{{--             <li><a  class="i" href="single.html"> </a></li>--}}
-{{--             <li><a  class="Compar" href="single.html"> </a></li>--}}
-{{--             <li><a  class="Wishlist" href="single.html"> </a></li>--}}
-{{--         </ul>--}}
-{{--    </div>--}}
-{{--    <div class="grid_1_of_4 images_1_of_4 products-info">--}}
-{{--         <img src="images/m7.jpg">--}}
-{{--          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>--}}
-{{--         <h3>$180</h3>--}}
-{{--         <ul>--}}
-{{--             <li><a  class="cart" href="single.html"> </a></li>--}}
-{{--             <li><a  class="i" href="single.html"> </a></li>--}}
-{{--             <li><a  class="Compar" href="single.html"> </a></li>--}}
-{{--             <li><a  class="Wishlist" href="single.html"> </a></li>--}}
-{{--         </ul>--}}
-{{--    </div>--}}
-{{--    <div class="grid_1_of_4 images_1_of_4 products-info">--}}
-{{--         <img src="images/m1.jpg">--}}
-{{--          <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a>--}}
-{{--         <h3>$140</h3>--}}
-{{--         <ul>--}}
-{{--             <li><a  class="cart" href="single.html"> </a></li>--}}
-{{--             <li><a  class="i" href="single.html"> </a></li>--}}
-{{--             <li><a  class="Compar" href="single.html"> </a></li>--}}
-{{--             <li><a  class="Wishlist" href="single.html"> </a></li>--}}
-{{--         </ul>--}}
-{{--    </div>--}}
-</div>

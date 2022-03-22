@@ -1,3 +1,5 @@
+@extends('backend.layouts.master')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +20,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -79,12 +81,17 @@
                                         </a>
                                     </td>
                                 </tr>
+
                             </tbody>
+
                              @endforeach
 
                              @endisset
-
+                           
                                 </table>
+                                <div>
+                                    {{isset($data) ? $data->links() : ''}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -148,4 +155,4 @@
 </body>
 
 </html>
-
+@endsection

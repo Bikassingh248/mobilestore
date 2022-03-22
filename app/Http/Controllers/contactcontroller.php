@@ -9,6 +9,12 @@ class contactcontroller extends Controller
 {
     //
     public function save(Request $req){
+        $req->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'mobileno'=>'required',
+            'subject'=>'required',
+        ]);
 $data=[
     'name'=>$req->get('name'),
     'email'=>$req->get('email'),
