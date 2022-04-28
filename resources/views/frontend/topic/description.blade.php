@@ -89,7 +89,7 @@
                             <input type="hidden" name="productid" value={{$data->id}}>
                             <button type="submit" class="btn btn-primary" >Addcart</button>
                         </form>
-                        <a href="#" class="btn btn-success">Buy Product</a>
+                        <a href="#" class="btn btn-sucess">Buy Product</a>
 		    		</div>
 		    		<div class="share">
 		    			<ul>

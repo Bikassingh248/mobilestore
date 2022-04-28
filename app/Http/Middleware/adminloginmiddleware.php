@@ -15,10 +15,10 @@ class adminloginmiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->path()=="adminlogin" && $request->session()->has('admin')){
-            return redirect('dashboard');
+        // if($request->path()=="adminlogin" && $request->session()->has('admin')){
+        //     return redirect('dashboard');
 
-        }
-        return $next($request);
+        // }
+        // return $next($request);
         }
 }

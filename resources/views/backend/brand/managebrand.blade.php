@@ -87,11 +87,11 @@
                              @endforeach
 
                              @endisset
-                           
+
                                 </table>
-                                <div>
+                                {{-- <div>
                                     {{isset($data) ? $data->links() : ''}}
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

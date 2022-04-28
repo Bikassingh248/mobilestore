@@ -30,8 +30,8 @@ $admin=admin::where('email',$req->email)->first();
 if($admin){
 if(Hash::check($req->password,$admin->password))
 {
-    // Auth::login($admin);
-    session()->put('admin',$admin);
+    Auth::login($admin);
+    // session()->put('admin',$admin);
     return redirect('dashboard');
 }
 else{
@@ -46,13 +46,14 @@ else{
 
     }
     public function logout(){
+
         if(Auth::check()){
 
             Auth::logout();
             // Session::forget('admin');
             return redirect()->route('admin.login');
         }
-        dd("admin is already logout");
+
     }
 
 }

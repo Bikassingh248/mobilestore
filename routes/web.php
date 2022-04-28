@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Contracts\View\View;
+
 Route::get('/', function () {
     return view('welcome');
 });
